@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import Select from "react-select";
 
 function App() {
+  const values = ["one", "two", "three", "four"];
+  const [selectedValue, setSelectedValue] = useState(values[0]);
+
+  const handleSelectChange = (evt) => {
+    setSelectedValue(evt.label);
+  };
+
+  const convertArrayToSelectFormat = (arrayToConvert) =>
+    arrayToConvert.map((item) => ({ value: item, label: item }));
+
+  const displayedValue = convertArrayToSelectFormat([selectedValue]);
+  const options = convertArrayToSelectFormat(values);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      className="App"
+      style={{
+        width: "50%",
+        margin: "10% 25%",
+      }}
+    >
+      <Select
+        name="select"
+        value={displayedValue}
+        onChange={handleSelectChange}
+        components={{
+          ClearIndicator: null,
+        }}
+        options={options}
+        className="react-select-container"
+        classNamePrefix="react-select"
+      />
     </div>
   );
 }
