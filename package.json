@@ -106,7 +106,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "yarn build && changeset publish",
-    "prepare": "npm run build && cp -R packages/react-select/dist ."
+    "prepare": "yarn build"
   },
   "files": [
     "dist",
