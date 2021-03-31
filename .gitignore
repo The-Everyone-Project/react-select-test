@@ -1,7 +1,7 @@
 # Build
-lib
-dist
-docs/dist
+# lib
+# dist
+# docs/dist
 .env
 
 # Logs
