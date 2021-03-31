@@ -105,7 +105,8 @@
     "test:cypress:watch": "node ./node_modules/.bin/cypress open",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "yarn build && changeset publish"
+    "release": "yarn build && changeset publish",
+    "prepare": "npm run build && cp -R packages/react-select/dist ."
   },
   "files": [
     "dist",
